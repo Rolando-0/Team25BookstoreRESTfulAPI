@@ -1,9 +1,9 @@
 package com.example.Team25SpringMongoRest.exception;
 
-public class profileCollectionException extends Exception{
+public class userCollectionException extends Exception{
   
 
-  public profileCollectionException(String message){
+  public userCollectionException(String message){
     super(message);
   }
 
