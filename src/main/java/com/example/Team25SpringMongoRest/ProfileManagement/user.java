@@ -8,13 +8,16 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Document
 
-public class profile {
+public class user {
   
   @Id
   private String id;
@@ -30,7 +33,7 @@ public class profile {
   private String emailAddress;
   private String homeAddress;
 
-  
+  private List<payment> payments;
 
 
 }
