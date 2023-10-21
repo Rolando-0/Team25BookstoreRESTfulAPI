@@ -29,7 +29,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
     }
 
     @Override
-    public String addToCart(String bookId, String userId) {
+    public String addToCart(String userId, String bookId) {
         ShoppingCart cart = shoppingCartRepository.findByUserId(userId);
         if (cart == null) {
             throw new RuntimeException("Shopping cart not found for user: " + userId);
@@ -62,7 +62,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
     }
 
     @Override
-    public String removeFromCart(String bookId, String userId) {
+    public String removeFromCart(String userId, String bookId) {
         ShoppingCart cart = shoppingCartRepository.findByUserId(userId);
         if (cart == null) {
             throw new RuntimeException("Shopping cart not found for user: " + userId);
