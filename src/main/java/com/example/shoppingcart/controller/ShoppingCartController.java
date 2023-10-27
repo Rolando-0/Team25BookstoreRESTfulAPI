@@ -17,6 +17,7 @@ public class ShoppingCartController {
 
     @GetMapping("/subtotal")
     public ResponseEntity<Double> getSubtotal(@RequestParam String userId) {
+        // If need to add $ change from double to a string
         double subtotal = shoppingCartService.getSubtotal(userId);
         return ResponseEntity.ok(subtotal);
     }
