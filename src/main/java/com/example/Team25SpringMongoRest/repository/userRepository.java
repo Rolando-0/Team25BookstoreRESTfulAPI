@@ -1,6 +1,6 @@
 package com.example.Team25SpringMongoRest.repository;
 
-import com.example.Team25SpringMongoRest.ProfileManagement.user;
+import com.example.Team25SpringMongoRest.model.user;
 
 import java.util.Optional;
 
