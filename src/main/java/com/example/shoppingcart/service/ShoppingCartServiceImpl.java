@@ -43,7 +43,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
             //Uncomment when putting code together
            // Optional<Book> bookToAdd = bookRepository.findById(bookId)
                     //.orElseThrow(() -> new NoSuchElementException("Book not found with ID: " + bookId));
-            //Remove bottom three lines when putting code together
+            //Remove bottom four lines when putting code together
             Book book1 = new Book();
             book1.setId(bookId);
             book1.setName("Test");
@@ -81,6 +81,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
         try {
             //Book bookToRemove = bookRepository.findById(bookId)
                    // .orElseThrow(() -> new NoSuchElementException("Book not found with ID: " + bookId));
+            //Remove bottom three lines when putting code together
             Book bookToRemove = new Book();
             bookToRemove.setId(bookId);
             bookToRemove.setName("Test");
