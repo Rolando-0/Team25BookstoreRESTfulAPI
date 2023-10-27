@@ -1,13 +1,13 @@
 package com.example.Team25SpringMongoRest.controller;
 import java.util.List;
 
-import com.example.Team25SpringMongoRest.model.payment;
+import com.example.Team25SpringMongoRest.model.profile.payment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.example.Team25SpringMongoRest.model.user;
+import com.example.Team25SpringMongoRest.model.profile.user;
 import com.example.Team25SpringMongoRest.exception.userCollectionException;
 import com.example.Team25SpringMongoRest.service.userService;
 

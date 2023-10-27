@@ -1,5 +1,6 @@
-package com.example.Team25SpringMongoRest.model;
+package com.example.Team25SpringMongoRest.model.profile;
 
+import com.example.Team25SpringMongoRest.model.profile.payment;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
