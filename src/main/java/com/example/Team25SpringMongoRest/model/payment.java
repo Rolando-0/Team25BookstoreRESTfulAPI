@@ -1,11 +1,11 @@
-package com.example.Team25SpringMongoRest.ProfileManagement;
+package com.example.Team25SpringMongoRest.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.mongodb.core.mapping.Document;
-import jakarta.validation.constraints.NotNull;
+
 @Getter
 @Setter
 @NoArgsConstructor

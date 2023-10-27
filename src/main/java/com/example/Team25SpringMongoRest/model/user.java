@@ -1,4 +1,4 @@
-package com.example.Team25SpringMongoRest.ProfileManagement;
+package com.example.Team25SpringMongoRest.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
