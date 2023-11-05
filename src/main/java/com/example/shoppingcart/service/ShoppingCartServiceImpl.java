@@ -22,12 +22,16 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
     private BookRepository bookRepository;
 
     @Override
-    public double getSubtotal(String userId) {
+    public Double getSubtotal(String userId) {
         ShoppingCart cart = shoppingCartRepository.findByUserId(userId);
         if (cart == null) {
             throw new RuntimeException("Shopping cart not found for user: " + userId);
         }
-        return cart.getBooks().stream().mapToDouble(Book::getPrice).sum();
+        double subtotal = cart.getBooks().stream()
+                .mapToDouble(book -> book.getQuantity() * book.getPrice())
+                .sum();
+
+        return subtotal;
     }
 
     @Override
@@ -45,16 +49,21 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
                     //.orElseThrow(() -> new NoSuchElementException("Book not found with ID: " + bookId));
             //Remove bottom four lines when putting code together
             Book book1 = new Book();
+            Book book2 = new Book();
             book1.setId(bookId);
             book1.setName("Test");
             book1.setPrice(20.00);
             if(cart.getBooks() == null){cart.setBooks(new ArrayList<Book>());}
             // Check if the book is already in the cart
-            if (!cart.getBooks().contains(book1)) {
+            book2 = cart.getBooks().stream().filter(book -> book.getId().equals(bookId)).findAny().orElse(null);
+            if (book2==null) {
+                book1.setQuantity(1);
                 cart.getBooks().add(book1);
                 shoppingCartRepository.save(cart);
                 return "Book added to the shopping cart successfully";
             } else {
+                book2.setQuantity(book2.getQuantity() +1);
+                shoppingCartRepository.save(cart);
                 return "Book is already in the shopping cart. Quantity increased.";
             }
         } catch (NoSuchElementException e) {
@@ -79,15 +88,20 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
         }
 
         try {
-            //Book bookToRemove = bookRepository.findById(bookId)
-                   // .orElseThrow(() -> new NoSuchElementException("Book not found with ID: " + bookId));
-            //Remove bottom three lines when putting code together
-            Book bookToRemove = new Book();
-            bookToRemove.setId(bookId);
-            bookToRemove.setName("Test");
-            // Remove the book from the cart
-            boolean removed = cart.getBooks().remove(bookToRemove);
-            if (removed) {
+            Book bookToRemove = cart.getBooks().stream()
+                    .filter(book -> book.getId().equals(bookId))
+                    .findFirst()
+                    .orElse(null);
+
+            if (bookToRemove != null) {
+                if (bookToRemove.getQuantity() > 1) {
+                    // Decrease the quantity by one
+                    bookToRemove.setQuantity(bookToRemove.getQuantity() - 1);
+                } else {
+                    // Remove the book from the cart when the quantity is zero
+                    cart.getBooks().remove(bookToRemove);
+                }
+
                 shoppingCartRepository.save(cart);
                 return "Book removed from the shopping cart successfully";
             } else {

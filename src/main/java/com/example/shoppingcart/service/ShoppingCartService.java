@@ -7,11 +7,11 @@ import java.util.List;
 
 public interface ShoppingCartService {
 
-    double getSubtotal(String userId);
+    Double getSubtotal(String userId);
 
-    String addToCart(String bookId, String userId);
+    String addToCart(String userId, String bookId);
 
     List<Book> getCartItems(String userId);
 
-    String removeFromCart(String bookId, String userId);
+    String removeFromCart(String userId, String bookId);
 }

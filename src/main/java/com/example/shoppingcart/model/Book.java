@@ -15,7 +15,10 @@ public class Book {
     private String name;
 
     @NotNull
-    private double price;
+    private Double price;
+
+    @NotNull
+    private Integer quantity;
 }
 
 
