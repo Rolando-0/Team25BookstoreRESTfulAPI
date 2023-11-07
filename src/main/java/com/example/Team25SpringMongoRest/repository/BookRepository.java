@@ -1,15 +1,15 @@
-package com.example.Team25SpringMongoRest.repository;
+package com.example.test.repository;
 
-import com.example.Team25SpringMongoRest.model.BookDetails.Book;
+import com.example.test.model.Book;
 import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.data.mongodb.repository.Query;
 
-import java.util.Optional;
+import java.util.List;
 
 public interface BookRepository extends MongoRepository<Book, String> {
-    Optional<Book> findById(String bookId);
-
-
-
-
+    // Additional custom query methods can be added here
+    List<Book> findByGenre(String genre);
+    List<Book> findTop10ByOrderByCopiesSoldDesc();
+    List<Book> findByRatingGreaterThanEqual(double rating);
+    List<Book> findByPublisher(String publisher);
 }
+
