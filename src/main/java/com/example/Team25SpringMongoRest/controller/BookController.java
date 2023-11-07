@@ -1,27 +1,49 @@
-package com.example.Team25SpringMongoRest.controller;
+package com.example.test.controller;
 
-import com.example.Team25SpringMongoRest.model.BookDetails.Book;
-import com.example.Team25SpringMongoRest.service.BookService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.test.model.Book;
+import com.example.test.service.BookService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Optional;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @RestController
 @RequestMapping("/books")
 public class BookController {
-
     @Autowired
     private BookService bookService;
 
     @PostMapping
-    public void addBook(@RequestBody Book book) {
-        bookService.addBook(book);
+    public Book addBook(@RequestBody Book book) {
+        return bookService.addBook(book);
     }
 
-    @GetMapping("/{isbn}")
-    public Optional<Book> getBookByIsbn(@PathVariable String isbn) {
-        return bookService.findByIsbn(isbn);
+    @GetMapping
+    public List<Book> getBooksByGenre(@RequestParam("genre") String genre) {
+        return bookService.getBooksByGenre(genre);
     }
-
+    @GetMapping("/top-sellers")
+    public ResponseEntity<List<Book>> getTopSellers() {
+        List<Book> topSellers = bookService.getTopSellers();
+        return ResponseEntity.ok(topSellers);
+    }
+    @GetMapping("/by-rating")
+    public ResponseEntity<List<Book>> getBooksByRating(
+            @RequestParam("rating") double rating
+    ) {
+        List<Book> books = bookService.findBooksByRating(rating);
+        return ResponseEntity.ok(books);
+    }
+    @PutMapping("/discount")
+    public ResponseEntity<List<Book>> discountBooksByPublisher(
+            @RequestParam("publisher") String publisher,
+            @RequestParam("discountPercent") double discountPercent
+    ) {
+        List<Book> discountedBooks = bookService.discountBooksByPublisher(publisher, discountPercent);
+        return ResponseEntity.ok(discountedBooks);
+    }
 }
+
+
+
+
