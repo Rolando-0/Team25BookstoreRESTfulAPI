@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import com.example.Team25SpringMongoRest.model.payment;
+import com.example.Team25SpringMongoRest.model.profile.payment;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.Team25SpringMongoRest.model.user;
+import com.example.Team25SpringMongoRest.model.profile.user;
 import com.example.Team25SpringMongoRest.exception.userCollectionException;
 import com.example.Team25SpringMongoRest.repository.userRepository;
 

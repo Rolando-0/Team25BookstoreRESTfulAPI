@@ -1,4 +1,4 @@
-package com.example.Team25SpringMongoRest.model;
+package com.example.Team25SpringMongoRest.model.profile;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
