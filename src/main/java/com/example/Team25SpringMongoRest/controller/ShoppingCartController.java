@@ -1,6 +1,6 @@
 package com.example.Team25SpringMongoRest.controller;
 
-import com.example.Team25SpringMongoRest.model.ShoppingCart.Book;
+import com.example.Team25SpringMongoRest.model.BookDetails.Book;
 import com.example.Team25SpringMongoRest.service.ShoppingCartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -38,4 +38,7 @@ public class ShoppingCartController {
         String resultMessage = shoppingCartService.removeFromCart(userId, bookId);
         return ResponseEntity.ok(resultMessage);
     }
+
+
+
 }

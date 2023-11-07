@@ -1,7 +1,6 @@
 package com.example.Team25SpringMongoRest.service;
 
-import com.example.Team25SpringMongoRest.model.ShoppingCart.Book;
-import com.example.Team25SpringMongoRest.model.ShoppingCart.ShoppingCart;
+import com.example.Team25SpringMongoRest.model.BookDetails.Book;
 
 import java.util.List;
 
