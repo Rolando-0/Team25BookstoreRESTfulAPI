@@ -21,10 +21,5 @@ public class BookService {
         return bookRepository.findById(isbn);
     }
 
-    /**         TO BE DEFINED
-     **
-    public List<Book> findBooksByAuthorId(String authorId) {
-        return bookRepository.findByAuthorId(authorId);
-    }
-     */
+ }
 }
