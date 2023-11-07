@@ -15,15 +15,20 @@ import java.math.BigDecimal;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Document("expense")
-public class Expense {
+@Document(collection = "book")
+public class Book {
     @Id
     private String id;
-    @Field("name")
-    @Indexed(unique = true)
-    private String expenseName;
-    @Field("category")
-    private ExpenseCategory expenseCategory;
-    @Field("amount")
-    private BigDecimal expenseAmount;
+    private String title;
+    private String author;
+    private String genre;
+    private String publisher;
+    private double price;
+    private int copiesSold;
+    private double rating;
+    private double discountPercent;
+
+
+
+    // Constructors, getters, and setters
 }
