@@ -29,6 +29,4 @@ public class Book {
     private double discountPercent;
 
 
-
-    // Constructors, getters, and setters
 }
