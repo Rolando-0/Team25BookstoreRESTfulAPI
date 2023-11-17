@@ -27,6 +27,6 @@ public class Book {
     private int copiesSold;
     private double rating;
     private double discountPercent;
-
+    private Integer quantity;
 
 }
