@@ -40,19 +40,19 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
         if (cart == null) {
             cart = new ShoppingCart();
             cart.setUserId(userId);
-            //throw new RuntimeException("Shopping cart not found for user: " + userId);
+            throw new RuntimeException("Shopping cart not found for user: " + userId); //this was uncommented
         }
 
         try {
             //Uncomment when putting code together
-           // Optional<Book> bookToAdd = bookRepository.findById(bookId)
-                    //.orElseThrow(() -> new NoSuchElementException("Book not found with ID: " + bookId));
-            //Remove bottom four lines when putting code together
-            Book book1 = new Book();
-            Book book2 = new Book();
-            book1.setId(bookId);
-            book1.setName("Test");
-            book1.setPrice(20.00);
+           Optional<Book> bookToAdd = bookRepository.findById(bookId)
+                    .orElseThrow(() -> new NoSuchElementException("Book not found with ID: " + bookId));
+            //Remove bottom five lines when putting code together
+            //Book book1 = new Book();
+            //Book book2 = new Book();
+            //book1.setId(bookId);
+            //book1.setName("Test");
+            //book1.setPrice(20.00);
             if(cart.getBooks() == null){cart.setBooks(new ArrayList<Book>());}
             // Check if the book is already in the cart
             book2 = cart.getBooks().stream().filter(book -> book.getId().equals(bookId)).findAny().orElse(null);
