@@ -4,6 +4,7 @@ import com.example.test.model.Book;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface BookRepository extends MongoRepository<Book, String> {
     // Additional custom query methods can be added here
@@ -11,5 +12,6 @@ public interface BookRepository extends MongoRepository<Book, String> {
     List<Book> findTop10ByOrderByCopiesSoldDesc();
     List<Book> findByRatingGreaterThanEqual(double rating);
     List<Book> findByPublisher(String publisher);
+    Optional<Book> findById(String bookId);
 }
 
