@@ -34,16 +34,11 @@ public class BookController {
         List<Book> books = bookService.findBooksByRating(rating);
         return ResponseEntity.ok(books);
     }
-    @PutMapping("/discount")
-    public ResponseEntity<List<Book>> discountBooksByPublisher(
-            @RequestParam("publisher") String publisher,
-            @RequestParam("discountPercent") double discountPercent
+    @PatchMapping("/updatePrice/{publisher}")
+    public void updatePricesByPublisher(
+            @PathVariable String publisher,
+            @RequestParam double discountPercent
     ) {
-        List<Book> discountedBooks = bookService.discountBooksByPublisher(publisher, discountPercent);
-        return ResponseEntity.ok(discountedBooks);
+        bookService.updatePricesByPublisher(publisher, discountPercent);
     }
 }
-
-
-
-
