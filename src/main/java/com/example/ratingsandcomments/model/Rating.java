@@ -24,12 +24,12 @@ public class Rating {
     private Long ratingID;
 
     @ManyToOne
-    @JoinColumn(name = "userID")
-    private User user;
+    @JoinColumn(name = "user")
+    private String user;
 
     @ManyToOne
     @JoinColumn(name= "bookID")
-    private Book book;
+    private String book;
 
     @Column(name = "Rating")
     private Integer rating;
