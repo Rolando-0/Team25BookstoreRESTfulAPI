@@ -1,5 +1,6 @@
 package com.example.ratingsandcomments.controller;
 
+import com.example.ratingsandcomments.model.Book;
 import com.example.ratingsandcomments.model.Rating;
 import com.example.ratingsandcomments.service.RatingService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,16 @@ public class RatingController {
 
     }
 
+    @RequestMapping(method = RequestMethod.GET, value="/rating")
+    public ResponseEntity<String> getRating(@RequestBody Book book){
+        if (book== null){
+            return new ResponseEntity<>("Please enter a book", HttpStatus.BAD_REQUEST);
+        }
+        ratingService.getRating(book);
+        return new ResponseEntity<>(HttpStatus.OK);
+
+    }
+
+
 
 }
-
